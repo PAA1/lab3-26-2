@@ -140,24 +140,23 @@ def dijkstra_caminho(grafo: dict, origem, destino) -> tuple[float, list]:
 
     dist = {v: float('inf') for v in grafo}
     parent = {v: None for v in grafo}
-    parent[v] = v
     processado = {v : False for v in grafo}
     dist[origem] = 0
     heap = [(0, origem)]
 
     while heap:
+        d, u = heapq.heappop(heap)
         # TODO
-        pass
 
 
     if dist[destino] == float('inf'):
-        return # TODO:
+        return (float('inf'), [])
 
     caminho = []
     v = destino
     while v is not None:
         # TODO
-        pass
+        break  # remova esta linha ao implementar
 
     # Complexidade: O((n + m) log n)
 
@@ -234,12 +233,11 @@ def dijkstra_buracos(grafo: dict, buracos: set, origem, destino, k: int) -> tupl
 
     inicio = (origem, 0)
     dist[inicio] = 0
-    parent[inicio] = inicio
     heap = [(0, origem, 0)] # custo, vértice, buracos atingidos
 
     while heap:
+        d, u, b = heapq.heappop(heap)
         # TODO:
-        pass
 
     melhor_distancia = float('inf')
     melhor_num_buracos = 0
