@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+
+# Solução de referência e gerador do anel (uso do professor)
+lab3_gabarito.py
+gerar_anel.py
+
+# Arquivos gerados durante a execução
+resultado_lab3.html
+.vscode/
+.idea/
