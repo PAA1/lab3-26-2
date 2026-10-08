@@ -137,9 +137,29 @@ def dijkstra_caminho(grafo: dict, origem, destino) -> tuple[float, list]:
         dijkstra_caminho(G_AULA, 'S', 'F') -> (inf, [])
     """
     # TODO: implemente esta função usando heapq e um dicionário de antecessores.
-    return (float('inf'), [])
 
-    # Complexidade: O( )
+    dist = {v: float('inf') for v in grafo}
+    parent = {v: None for v in grafo}
+    parent[v] = v
+    processado = {v : False for v in grafo}
+    dist[origem] = 0
+    heap = [(0, origem)]
+
+    while heap:
+        # TODO
+        pass
+
+
+    if dist[destino] == float('inf'):
+        return # TODO:
+
+    caminho = []
+    v = destino
+    while v is not None:
+        # TODO
+        pass
+
+    # Complexidade: O((n + m) log n)
 
 
 print("=" * 60)
@@ -201,18 +221,42 @@ def dijkstra_buracos(grafo: dict, buracos: set, origem, destino, k: int) -> tupl
         dijkstra_buracos(G_RUA, BURACOS_RUA, 'S', 'T', 1) -> (4, ['S', 'A', 'T'])
         dijkstra_buracos(G_RUA, BURACOS_RUA, 'S', 'T', 2) -> (3, ['S', 'X', 'Y', 'T'])
     """
-    inicio = (origem, 0)
-    dist = {inicio: 0}
-    parent = {inicio: None}
-    processado = set()
-    heap = [(0, origem, 0)]
- 
-
- 
     # TODO: implemente esta função adaptando o algoritmo de Dijkstra.
 
+    dist = {}
+    parent = {}
+    processado = {}
+    for v in grafo.keys():
+        for i in range(k + 1):  # Para cada número de buracos entre {0, ..., k}
+            dist[(v, i)] = float('inf')
+            parent[(v, i)] = None
+            processado[(v, i)] = None
 
-    return (float('inf'), [])
+    inicio = (origem, 0)
+    dist[inicio] = 0
+    parent[inicio] = inicio
+    heap = [(0, origem, 0)] # custo, vértice, buracos atingidos
+
+    while heap:
+        # TODO:
+        pass
+
+    melhor_distancia = float('inf')
+    melhor_num_buracos = 0
+    for i in range(k + 1):
+        if dist[(destino, i)] < melhor_distancia:
+            melhor_num_buracos = i
+            melhor_distancia = dist[(destino, melhor_num_buracos)]
+
+    if melhor_distancia == float('inf'):
+        return (float('inf'), [])
+
+    no_atual = (destino, melhor_num_buracos)
+    caminho = []
+
+    # TODO: 
+
+    return (melhor_distancia, caminho)
 
     # Complexidade: O( )
 
